@@ -1,0 +1,13 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Vav\Indexer\Api\Service\IndexerServiceInterface" type="Vav\Indexer\Service\IndexerService" />
+
+    <!-- CLI Commands -->
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="4lexvav_indexer" xsi:type="object">Vav\Indexer\Console\Command\IndexerCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
