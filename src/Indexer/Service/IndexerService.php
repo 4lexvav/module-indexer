@@ -4,19 +4,18 @@ namespace Vav\Indexer\Service;
 
 
 use Magento\Framework\Indexer\IndexerInterface;
-use Magento\Indexer\Model\Indexer\Collection;
 use Magento\Indexer\Model\Indexer\CollectionFactory;
 use Vav\Indexer\Api\Service\IndexerServiceInterface;
 
 class IndexerService implements IndexerServiceInterface
 {
     const PRODUCT_INDEXERS = [
-        'catalog_product_attribute', // good
-        'inventory', // good
-        'catalogrule_product', // good
-        'cataloginventory_stock', // good
-        'catalog_product_price', // good
-        'catalogsearch_fulltext', // good
+        'catalog_product_attribute',
+        'inventory',
+        'catalogrule_product',
+        'cataloginventory_stock',
+        'catalog_product_price',
+        'catalogsearch_fulltext',
     ];
 
     /**
@@ -45,10 +44,7 @@ class IndexerService implements IndexerServiceInterface
      */
     private function getIndexers()
     {
-        $indexers = [];
-        /** @var Collection $collection */
-        $collection = $this->collectionFactory->create();
-        $indexers = array_filter($collection->getItems(), function($indexer) {
+        $indexers = array_filter($this->collectionFactory->create()->getItems(), function($indexer) {
             /** @var IndexerInterface $indexer */
             return in_array($indexer->getId(), self::PRODUCT_INDEXERS, true);
         });
