@@ -11,14 +11,12 @@ use Vav\Indexer\Api\Service\IndexerServiceInterface;
 class IndexerService implements IndexerServiceInterface
 {
     const PRODUCT_INDEXERS = [
-        //'catalog_category_product',
-        'catalogrule_rule',
-        'catalog_product_attribute',
-        'inventory',
-        'catalogrule_product',
-        'cataloginventory_stock',
-        'catalog_product_price',
-        'catalogsearch_fulltext',
+        'catalog_product_attribute', // good
+        'inventory', // good
+        'catalogrule_product', // good
+        'cataloginventory_stock', // good
+        'catalog_product_price', // good
+        'catalogsearch_fulltext', // good
     ];
 
     /**

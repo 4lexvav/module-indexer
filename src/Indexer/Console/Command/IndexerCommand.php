@@ -2,6 +2,7 @@
 
 namespace Vav\Indexer\Console\Command;
 
+use Magento\Framework\App\Area;
 use Magento\Framework\App\State as AppState;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -54,11 +55,9 @@ class IndexerCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        /*try {
-            $this->appState->setAreaCode('global');
-        } catch (\Exception $e) {
-            # already set by another module
-        }*/
+        try {
+            $this->appState->setAreaCode(Area::AREA_CRONTAB);
+        } catch (\Exception $e) {/*already set*/}
 
         $this->indexerService->reindex($input->getArgument(self::INPUT_KEY_PRODUCTS));
 
